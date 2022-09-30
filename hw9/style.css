@@ -1,0 +1,53 @@
+body {
+    background-color: lightblue;
+}
+
+.todo-item {
+padding: 10px;
+border: 1px solid;
+margin: 5px;
+background-color: lightyellow;
+color: black;
+cursor: pointer;
+}
+
+.todo-item.done {
+background-color: lightgreen;
+}
+
+.todo-item .delete-btn {
+float: right;
+margin-right: 10px;
+}
+
+input.invalid-input {
+    background-color: lightcoral;
+}
+
+.form-input {
+    width: 90%;
+    margin-top: 30px;
+}
+
+.container {
+    min-height: 100px;
+    width: 700px;
+    border: 3px solid blue;
+    background-color: deepskyblue;
+    padding: 30px 30px 30px 30px;
+}
+
+.title {
+    margin-left: 50px;
+}
+
+.list-container {
+    border: 1px solid white;
+    min-height: 100px;
+    padding: 10px;
+}
+
+.btn {
+    background-color: chartreuse;
+    border: 2px solid white;
+}
