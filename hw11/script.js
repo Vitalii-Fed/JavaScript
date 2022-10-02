@@ -13,11 +13,15 @@ const saveTodoBtn = document.querySelector('#saveTodoBtn');
 const newTodoForm = document.querySelector('#newTodoForm');
 // const todoItem = document.querySelector('.todo-item');
 
+//============== TEST ARRAY ===============
+
 // let todoList = [
 //     { id: 1, task: Title1, isDone: false },
 //     { id: 2, task: Title2, isDone: false },
 //     { id: 3, task: Title3, isDone: false }
 // ];
+
+//============== TEST ARRAY ===============
 
 let list = [];
 
@@ -25,7 +29,7 @@ let list = [];
 newTodoForm.addEventListener('submit', onFormSubmit);
 listEl.addEventListener('click', onTodoListElClick);
 newTodoTitleInput.addEventListener('input', onFormElementInput);
-// todoItem.addEventListener('click', onClickTodoItem);
+// todoItem.addEventListener('click', todoItemClick);
 
 init();
 
@@ -51,23 +55,32 @@ function onTodoListElClick(e) {
     if (e.target.classList.contains(EDIT_BTN_CLASS)) {
         editTodo(todoId);
     }
-    if (e.target.classList.contains(TODO_ITEM_CLASS)) {
-        e.target.classList.toggle(DONE_ITEM_CLASS);
-    }
+    // if (e.target.classList.contains(TODO_ITEM_CLASS)) {
+    //     e.target.classList.toggle(DONE_ITEM_CLASS);
+    // }
 }
 
 function onFormElementInput(e) {
     validateInput(e.target);
 }
 
-// function onClickTodoItem({ isDone }) {
-//     return console.log(isDone);
-//     // if (isDone === null) {
-//     //      todoItem.classList.add(DONE_ITEM_CLASS);
-//     // } else {
-//     //     todoItem.classList.remove(DONE_ITEM_CLASS);
-//     // }
+//============== TOGGLE CLASS DONE ===============
+
+// function todoItemClick({ isDone }) {
+//     return onClickTodoItem(getFormValues({ isDone }));
 // }
+
+// function onClickTodo({ isDone = false }) {
+//     return onClickTodoItem({ isDone: false });
+// }
+
+// function onClickTodoItem(val) {
+//     if (val  === false) {
+//          todoItem.classList.toggle(DONE_ITEM_CLASS);
+//     }
+// }
+
+//============== TOGGLE CLASS DONE ===============
 
 function renderList(list) {
     listEl.innerHTML = list.map(generateTodoHtml).join('');
