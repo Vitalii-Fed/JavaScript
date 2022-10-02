@@ -81,3 +81,8 @@ input.invalid-input {
 .done {
     background-color: lightgreen;
     }
+
+[data-is-checked="true"] {
+    background-color: rgb(112, 208, 155);
+    color: #fff;
+}
