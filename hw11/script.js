@@ -15,7 +15,6 @@ const todoItem = document.querySelector('.todo-item');
 
 let list = [];
 
-
 newTodoForm.addEventListener('submit', onFormSubmit);
 listEl.addEventListener('click', onTodoListElClick);
 newTodoTitleInput.addEventListener('input', onFormElementInput);
@@ -64,7 +63,7 @@ function generateTodoHtml({ id, task, isDone }) {
     return todoTemplate
         .replaceAll('{{id}}', id)
         .replaceAll('{{task}}', task)
-        .replaceAll('{{isDone}}', isDone)
+        .replaceAll('{{isDone}}', isDone);
 }
 
 function getFormValues() {
@@ -104,24 +103,22 @@ function addTodo(todo) {
 }
 
 function updateTodo(todo) {
-    list = list.map((item) =>
-        item.id === todo.id ? todo : item
-    );
+    list = list.map(item => (item.id === todo.id ? todo : item));
     renderList(list);
 }
 
 function deleteTodo(id) {
-    list = list.filter((item) => item.id !== id);
+    list = list.filter(item => item.id !== id);
     renderList(list);
 }
 
 function editTodo(id) {
-    const todo = list.find((item) => item.id === id);
+    const todo = list.find(item => item.id === id);
     fillFormValues(todo);
 }
 
 function toggleTodo(id) {
-    const todo = list.find((item) => item.id === id);
+    const todo = list.find(item => item.id === id);
     todo.isDone = !todo.isDone;
     renderList(list);
 }

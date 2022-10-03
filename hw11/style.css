@@ -3,24 +3,23 @@ body {
 }
 
 .todo-item {
-padding: 10px;
-border: 1px solid;
-margin: 5px;
-background-color: rgb(255, 255, 170);
-color: black;
-cursor: pointer;
+    padding: 10px;
+    border: 1px solid;
+    margin: 5px;
+    background-color: rgb(255, 255, 170);
+    color: black;
+    cursor: pointer;
 }
 
 .todo-item .delete-btn {
-float: right;
-margin-right: 10px;
+    float: right;
+    margin-right: 10px;
 }
 
 .todo-item .edit-btn {
     float: right;
     margin-right: 10px;
-    }
-    
+}
 
 input.invalid-input {
     background-color: lightcoral;
@@ -80,9 +79,9 @@ input.invalid-input {
 
 .done {
     background-color: lightgreen;
-    }
+}
 
-[data-is-checked="true"] {
+[data-is-checked='true'] {
     background-color: rgb(112, 208, 155);
     color: #fff;
 }
