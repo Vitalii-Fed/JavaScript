@@ -11,7 +11,7 @@ const SALAD = { price: 20, callories: 5 };
 const MAYO = { price: 20, callories: 5 };
 const SPICES = { price: 15, callories: 0 };
 
-const doubleBurger = new Hamburger(SMALL_SIZE);
+const doubleBurger = new Hamburger(LARGE_SIZE);
 
 
 function Hamburger({ price, callories }) {
@@ -39,72 +39,6 @@ doubleBurger.addTopping(MAYO);
 doubleBurger.addTopping(SPICES);
 
 console.log(`
-Prices with additives: ${doubleBurger.getPrice()}
-Callories with additives: ${doubleBurger.getCallories()}
+Prices with addition: ${doubleBurger.getPrice()}
+Callories with addition: ${doubleBurger.getCallories()}
 `);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// * const hamburger = new Hamburger(SIZE_SMALL);
-//* // добавка из майонеза
-// * hamburger.addTopping(TOPPING_MAYO);
-// * hamburger.addTopping(TOPPING_POTATO);
-
-// * console.log("Price with sauce: “ + hamburger.getPrice());
-// * console.log("Callories with sauce: “ + hamburger.getCallories());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function Calc() {
-//     this.read = function () {
-//             this.num1 = +prompt('Enter first number');
-//             this.num2 = +prompt('Enter second number');
-//     };
-
-//     this.sum = function () {
-//         return this.num1 + this.num2;
-//     };
-
-//     this.mult = function () {
-//         return this.num1 * this.num2;
-//     };
-// }
-
-// const calc1 = new Calc();
-// calc1.read();
-// alert(`
-// Sum: ${calc1.sum()}, Mult: ${calc1.mult()}
-// `)
