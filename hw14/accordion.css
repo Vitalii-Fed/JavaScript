@@ -1,0 +1,50 @@
+body {
+    background-color: rgba(127, 255, 212, 0.597);
+}
+
+.accordion-container {
+    width: 600px;
+    height: 300px;
+    background-color: rgba(128, 128, 128, 0.352);
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 10px 3px 5px rgba(0, 0, 0, 0.17),
+    0 6px 9px rgba(0, 0, 0, 0.14),
+    0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.accordion-item {
+    background-color: rgb(209, 242, 162);
+    border-radius: 15px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.17),
+    0 4px 5px rgba(0, 0, 0, 0.14),
+    0 6px 7px rgba(0, 0, 0, 0.2);
+}
+
+.accordion-title {
+    padding: 20px;
+    color: rgb(2, 81, 55);
+    border-radius: 15px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.17),
+    0 4px 5px rgba(0, 0, 0, 0.14),
+    0 6px 7px rgba(0, 0, 0, 0.2);
+
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+
+.accordion-body {
+    padding: 40px 20px;
+    display: none;
+    border-radius: 15px;
+}
+
+.accordion-title--active {
+    background-color: rgb(7, 83, 57);
+    color: white;
+}
+
+.accordion-body--active {
+    display: block;
+}
