@@ -20,6 +20,7 @@ body {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.17),
     0 4px 5px rgba(0, 0, 0, 0.14),
     0 6px 7px rgba(0, 0, 0, 0.2);
+    margin-bottom: 3px;
 }
 
 .accordion-title {
@@ -35,9 +36,19 @@ body {
 }
 
 .accordion-body {
-    padding: 40px 20px;
+    padding: 30px 20px;
     display: none;
     border-radius: 15px;
+    text-transform: uppercase;
+    color: rgb(2, 81, 55);
+    font-family: 'Roboto', sans-serif;
+    animation-name: open;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
 }
 
 .accordion-title--active {
@@ -47,4 +58,22 @@ body {
 
 .accordion-body--active {
     display: block;
+}
+
+@keyframes open {
+    0% {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    }
+    50% {
+        display: block;
+        opacity: 0.5;
+        visibility: hidden;
+    }
+    100% {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    }
 }
