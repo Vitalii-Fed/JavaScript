@@ -22,7 +22,17 @@ newTodoTitleInput.addEventListener('input', onFormElementInput);
 init();
 
 function init() {
+    fetchTodo();
     renderList(list);
+}
+
+function fetchTodo() {
+    fetch('https://jsonplaceholder.typicode.com/todos').then((resp) => {
+        resp.json().then((data) => {
+            list = data;
+            renderList(list);
+        });
+    });
 }
 
 function onFormSubmit(e) {

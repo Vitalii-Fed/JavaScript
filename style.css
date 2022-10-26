@@ -1,0 +1,87 @@
+body {
+    background-color: lightblue;
+}
+
+.todo-item {
+    padding: 10px;
+    border: 1px solid;
+    margin: 5px;
+    background-color: rgb(255, 255, 170);
+    color: black;
+    cursor: pointer;
+}
+
+.todo-item .delete-btn {
+    float: right;
+    margin-right: 10px;
+}
+
+.todo-item .edit-btn {
+    float: right;
+    margin-right: 10px;
+}
+
+input.invalid-input {
+    background-color: lightcoral;
+}
+
+.form-input {
+    width: 70%;
+    margin-top: 30px;
+    height: 30px;
+    font-size: 25px;
+    background-color: antiquewhite;
+    border: none;
+}
+
+.container {
+    min-height: 100px;
+    width: 700px;
+    border: 3px solid blue;
+    background-color: deepskyblue;
+    padding: 30px 30px 30px 30px;
+}
+
+.title {
+    margin-left: 50px;
+    color: blue;
+    border: 2px dotted blue;
+    display: inline-block;
+    padding: 10px;
+}
+
+.list-container {
+    border: 1px solid white;
+    min-height: 100px;
+    padding: 10px;
+}
+
+.btn {
+    background-color: rgba(128, 255, 0, 0.714);
+    border: 2px solid white;
+    width: 190px;
+    height: 60px;
+    font-size: 30px;
+    color: green;
+}
+
+.delete-btn {
+    border: 2px solid rgb(250, 135, 135);
+    background-color: rgba(255, 0, 0, 0.51);
+    color: crimson;
+}
+
+.edit-btn {
+    border: 2px solid rgb(155, 155, 155);
+    background-color: rgba(185, 185, 185, 0.51);
+    color: rgb(78, 78, 78);
+}
+
+.done {
+    background-color: lightgreen;
+}
+
+[data-is-checked='true'] {
+    background-color: rgb(112, 208, 155);
+    color: #fff;
+}
