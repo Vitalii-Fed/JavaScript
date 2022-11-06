@@ -13,7 +13,6 @@ const surnameInput = document.querySelector('#surname');
 const emailInput = document.querySelector('#email');
 const contactTemplate = document.querySelector('#contactTemplate').innerHTML;
 const saveContactBtn = document.querySelector('#addContactBtn');
-saveContactBtn.disabled = true;
 
 let contactsList = [];
 
@@ -28,6 +27,7 @@ init();
 function init() {
     fetchContactsList();
     renderList(contactsList);
+    saveContactBtn.disabled = true;
 }
 
 function fetchContactsList() {
