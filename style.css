@@ -1,0 +1,70 @@
+.highlighted {
+    background-color: green;
+    color: blue;
+}
+
+.hidden {
+    display: none;
+}
+
+body {
+    background-color: lightblue;
+    font-family: 'Arial', sans-serif;
+}
+
+.delete-btn {
+    border: 2px solid red;
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgba(255, 0, 0, 0.392);
+    width: 70px;
+    height: 25px;
+    color: rgb(169, 0, 0);
+}
+
+.edit-btn {
+    border: 2px solid yellow;
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgba(255, 128, 0, 0.392);
+    width: 70px;
+    height: 25px;
+    color: rgb(163, 95, 0);
+}
+
+.contacts-title {
+    text-align: left;
+    text-transform: uppercase;
+    font-style: normal;
+    font-family: 'Arial', sans-serif;
+    color: blue;
+}
+
+.contacts-title:last-child {
+    text-align: center;
+}
+
+.input {
+    border: none;
+    background-color: blanchedalmond;
+}
+
+.addBtn {
+    border: 2px solid darkblue;
+    border-radius: 10px 10px 10px 10px;
+    color: blue;
+    background-color: lightskyblue;
+    width: 145px;
+    height: 25px;
+}
+
+.invalid-input {
+    background-color: rgb(255, 83, 83);
+}
+
+.contact-data {
+    background-color: rgba(0, 247, 255, 0.663);
+    color: midnightblue;
+}
+
+.invalid-input {
+    background-color: red
+}
