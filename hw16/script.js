@@ -171,32 +171,3 @@ function resetActiveValidation(input) {
     input.classList.remove(INVALID_INPUT_CLASS);
     saveContactBtn.disabled = false;
 }
-
-
-
-
-// function validateForm() {
-//     resetValidation();
-//     if (nameInput.value = '') {
-//         nameInput.classList.add(INVALID_INPUT_CLASS);
-//         return false;
-//     }
-
-//     if (surnameInput.value = '') {
-//         nameInput.classList.add(INVALID_INPUT_CLASS);
-//         return false;
-//     }
-
-//     if (emailInput.value = '') {
-//         nameInput.classList.add(INVALID_INPUT_CLASS);
-//         return false;
-//     }
-
-//     return true;
-// }
-
-// function resetValidation() {
-//     nameInput.classList.remove(INVALID_INPUT_CLASS);
-//     surnameInput.classList.remove(INVALID_INPUT_CLASS);
-//     emailInput.classList.remove(INVALID_INPUT_CLASS);
-// }
