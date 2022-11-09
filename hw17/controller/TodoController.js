@@ -2,14 +2,18 @@ class TodoController {
     #todoListView = null;
     #todoFormView = null;
     #todosCollection = null;
+    newTodo = {};
 
     constructor(container) {
         this.#todoListView = new TodoListView({
             onToggle: (id) => this.toggle(id),
             onDelete: (id) => this.delete(id),
-            onSave: () => this.save(),
         });
-        this.#todoFormView = new TodoFormView();
+        this.#todoFormView = new TodoFormView({
+            onGetValues: () => this.getValues(),
+            onSave: (newTodo) => this.save(newTodo),
+            onClear: () => this.clear(),
+        });
         container.append(this.#todoListView.el);
         container.append(this.#todoFormView.el);
 
@@ -29,9 +33,18 @@ class TodoController {
         );
     }
 
-    save(el) {
-        this.#todosCollection.create(el).then(() =>
-            this.#todosCollection.renderList(this.#todosCollection.list)
+    getValues() {
+        this.newTask = this.#todosCollection.getValues();
+        return this.newTask;
+    }
+
+    save(newTodo) {
+        this.#todosCollection.create(newTodo).then(() =>
+            this.#todoListView.renderList(this.#todosCollection.list)
         );
+    }
+
+    clear() {
+        this.#todosCollection.clear();
     }
 }

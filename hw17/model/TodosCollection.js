@@ -1,6 +1,7 @@
 class TodosCollection {
     #api = null;
     list = [];
+    todoInput = document.querySelector('.todo__form-input');
 
     constructor() {
         this.#api = new RestApi('https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/todos/');
@@ -29,12 +30,18 @@ class TodosCollection {
         });
     }
 
-    create(el) {
-        return this.#api.create(el).then((data) => {
-            this.list = [
-                ...this.list,
-                data,
-            ];
-        })
+    getValues() {
+        return {title: this.todoInput.value};
+      }
+
+    create(newTodo) {
+        newTodo = this.getValues();
+        return this.#api.create(newTodo).then((data) => {
+            this.list = [...this.list, data];
+        });
+    }
+
+    clear() {
+        return this.todoInput.value = '';
     }
 }

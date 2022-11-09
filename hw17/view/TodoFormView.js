@@ -8,6 +8,7 @@ class TodoFormView {
     
     el = null;
     #config = null;
+    todo = null;
 
     constructor(config) {
         this.#initView();
@@ -28,16 +29,27 @@ class TodoFormView {
         todoForm.append(todoFormInput);
         todoForm.append(todoFormBtn);
 
+
         todoForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            this.saveTodo(el);
+            const newTodo = this.getValues();
+            this.saveTodo(newTodo);
+            this.clearInput();
         })
 
         this.el = todoForm;
     }
 
-    saveTodo(el) {
-        this.#config.onSave(el);
+    getValues() {
+        this.#config.onGetValues();
+    }
+
+    saveTodo(newTodo) {
+        this.#config.onSave(newTodo);
+    }
+
+    clearInput() {
+        this.#config.onClear();
     }
 }
