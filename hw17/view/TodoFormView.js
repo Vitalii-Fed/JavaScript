@@ -3,7 +3,7 @@ class TodoFormView {
         <form id="todo-form" class="todo__form">
             <input type="hidden" id="id" />
             <input class="todo__form-input" type="text" id="todo-input" placeholder="Write task" />
-            <button class="todo__form-btn" id="saveTodoBtn">Save task</button>
+            <button class="todo__form-btn" id="saveTodoBtn">Save</button>
         </form>`
     
     el = null;
@@ -21,6 +21,8 @@ class TodoFormView {
 
         const todoFormInput = document.createElement('input');
         todoFormInput.className = 'todo__form-input';
+        todoFormInput.type = 'text';
+        todoFormInput.placeholder = 'Enter your task!';
 
         const todoFormBtn = document.createElement('button');
         todoFormBtn.className = 'todo__form-btn';
