@@ -32,7 +32,7 @@ class TodosCollection {
 
     getValues() {
         return {title: this.todoInput.value};
-      }
+    }
 
     create(newTodo) {
         newTodo = this.getValues();
