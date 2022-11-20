@@ -1,19 +1,11 @@
 {
-  "name": "javascript",
+  "name": "calculator",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "some node calculator",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Vitalii-Fed/JavaScript.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Vitalii-Fed/JavaScript/issues"
-  },
-  "homepage": "https://github.com/Vitalii-Fed/JavaScript#readme"
+  "author": "Vitalii-Fed",
+  "license": "ISC"
 }
