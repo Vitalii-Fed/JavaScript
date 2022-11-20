@@ -1,57 +1,155 @@
 class TodoFormView {
+    static CLASSES = {
+        INVALID_INPUT_CLASS: 'invalid-input',
+    };
+
     static todoFormTempalate = `
-        <form id="todo-form" class="todo__form">
-            <input type="hidden" id="id" />
-            <input class="todo__form-input" type="text" id="todo-input" placeholder="Write task" />
-            <button class="todo__form-btn" id="saveTodoBtn">Save</button>
-        </form>`
-    
-    el = null;
+    <div>
+    <form id="todo-form" class="todo__form">
+        <input type="hidden" id="id" name="todoId"/>
+        <input class="todo__form-input" type="text" id="todo-input" placeholder="Write task" name="title" />
+        <button class="todo__form-btn" id="saveTodoBtn">Save</button>
+    </form>
+    </div>`;
+
     #config = null;
-    todo = null;
+    el = null;
+    #form = null;
 
     constructor(config) {
-        this.#initView();
         this.#config = config;
-    }
+        this.#initView();
+    };
 
     #initView() {
-        const todoForm = document.createElement('form');
-        todoForm.className = 'todo__form';
+        this.el = htmlToElement(TodoFormView.todoFormTempalate);
 
-        const todoFormInput = document.createElement('input');
-        todoFormInput.className = 'todo__form-input';
-        todoFormInput.type = 'text';
-        todoFormInput.placeholder = 'Enter your task!';
+        this.#form = this.el.querySelector('form');
 
-        const todoFormBtn = document.createElement('button');
-        todoFormBtn.className = 'todo__form-btn';
-        todoFormBtn.textContent = 'Save';
-
-        todoForm.append(todoFormInput);
-        todoForm.append(todoFormBtn);
-
-
-        todoForm.addEventListener('submit', (e) => {
+        this.el.addEventListener('submit', (e) => {
             e.preventDefault();
+            if (!this.dataValidation()) {
+                return;
+            }
 
-            const newTodo = this.getValues();
-            this.saveTodo(newTodo);
+            const newTodo = this.getFormValues();
+            this.addTodo(newTodo);
             this.clearInput();
-        })
+        });
+    };
 
-        this.el = todoForm;
+    getFormValues() {
+        return {
+            id: this.#form.elements.todoId.value,
+            title: this.#form.elements.title.value,
+        };
+    };
+
+    fillInput({ id, title }) {
+        this.#form.elements.todoId.value = id;
+        this.#form.elements.title.value = title;
     }
 
-    getValues() {
-        this.#config.onGetValues();
-    }
-
-    saveTodo(newTodo) {
+    addTodo(newTodo) {
         this.#config.onSave(newTodo);
-    }
+    };
 
     clearInput() {
-        this.#config.onClear();
+        this.#form.reset();
+    };
+
+    dataValidation() {
+        this.resetValidation();
+        if (this.#form.elements.title.value.trim() === '') {
+            this.#form.elements.title.classList.add(TodoFormView.CLASSES.INVALID_INPUT_CLASS);
+            return false;
+        };
+        return true;
+    };
+
+    resetValidation() {
+        this.#form.elements.title.classList.remove(TodoFormView.CLASSES.INVALID_INPUT_CLASS);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// class TodoFormView {
+//     #config = null;
+//     el = null;
+//     #form = null;
+
+//     static CLASSES = {
+//         INVALID_INPUT_CLASS: 'invalid-input',
+//     };
+
+//     static todoFormTempalate = `
+//     <form id="todo-form" class="todo__form">
+//         <input type="hidden" id="id" />
+//         <input class="todo__form-input" type="text" id="todo-input" placeholder="Write task" />
+//         <button class="todo__form-btn" id="saveTodoBtn">Save</button>
+//     </form>`;
+//     taskInput = document.querySelector('#taskInput');
+//     idInput = document.querySelector('#taskId');
+
+//     constructor(config) {
+//     this.#config = config;
+//     this.#initView();
+//     }
+//     #initView() {
+//     this.el = htmlToElement(TodoFormView.todoFormTemplate);
+
+//     this.#form = this.el.querySelector('form');
+
+//     this.el.addEventListener('submit', (e) => {
+//         e.preventDefault();
+//         if (!this.dataValidation()) {
+//         return;
+//         }
+
+//         const newTask = this.getFormValues();
+//         this.addTask(newTask);
+//         this.clearinput();
+//     });
+//     }
+//     getFormValues() {
+//     return {
+//         id: this.#form.elements.taskId.value,
+//         title: this.#form.elements.title.value,
+//     };
+//     }
+//     fillInput({ id, title }) {
+//     this.#form.elements.taskId.value = id;
+//     this.#form.elements.title.value = title;
+//     }
+
+//     addTask(newTask) {
+//     this.#config.onSave(newTask);
+//     }
+
+//     clearinput() {
+//     this.#form.reset();
+//     }
+
+//     dataValidation() {
+//     this.resetValidation();
+//     if (this.#form.elements.title.value.trim() === '') {
+//         this.#form.elements.title.classList.add(TodoFormView.CLASSES.INVALID_CLASS);
+//         return false;
+//     }
+//     return true;
+//     }
+
+//     resetValidation() {
+//     this.#form.elements.title.classList.remove(TodoFormView.CLASSES.INVALID_CLASS);
+//     }
+// }

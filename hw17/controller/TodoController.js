@@ -1,50 +1,55 @@
 class TodoController {
-    #todoListView = null;
-    #todoFormView = null;
-    #todosCollection = null;
-    newTodo = {};
+    #TodoListView = null;
+    #TodosCollection = null;
+    #TodoFormView = null;
 
-    constructor(container) {
-        this.#todoListView = new TodoListView({
-            onToggle: (id) => this.toggle(id),
-            onDelete: (id) => this.delete(id),
-        });
-        this.#todoFormView = new TodoFormView({
-            onGetValues: () => this.getValues(),
-            onSave: (newTodo) => this.save(newTodo),
-            onClear: () => this.clear(),
-        });
-        container.append(this.#todoListView.el);
-        container.append(this.#todoFormView.el);
+    constructor(todoEl) {
+        this.#TodoListView = new TodoListView({
+            onToggle: (id) => this.toggleTodo(id),
+            onDelete: (id) => this.deleteTodo(id),
+            onEdit: (id) => this.editTodo(id),
+        })
 
-        this.#todosCollection = new TodosCollection();
-        this.#todosCollection.fetchList().then(() => this.#todoListView.renderList(this.#todosCollection.list));
-    }
+        todoEl.append(this.#TodoListView.el);
 
-    toggle(id) {
-        this.#todosCollection.toggle(id).then(() => 
-            this.#todoListView.renderList(this.#todosCollection.list)
-        );
-    }
+        this.#TodosCollection = new TodosCollection();
 
-    delete(id) {
-        this.#todosCollection.delete(id).then(() => 
-            this.#todoListView.renderList(this.#todosCollection.list)
-        );
-    }
+        this.#TodosCollection
+            .fetchList()
+            .then(() => {
+                this.#TodoListView.renderList(this.#TodosCollection.list)
+            });
+        
+        this.#TodoFormView = new TodoFormView({
+            onSave: (newTodo) => this.addTodo(newTodo),
+        })
 
-    getValues() {
-        this.newTask = this.#todosCollection.getValues();
-        return this.newTask;
-    }
+        todoEl.append(this.#TodoFormView.el);
+    };
 
-    save(newTodo) {
-        this.#todosCollection.create(newTodo).then(() =>
-            this.#todoListView.renderList(this.#todosCollection.list)
-        );
-    }
+    toggleTodo(id) {
+        this.#TodosCollection.toggle(id)
+            .then(() => {
+                this.#TodoListView.renderList(this.#TodosCollection.list);
+            });
+    };
 
-    clear() {
-        this.#todosCollection.clear();
-    }
+    deleteTodo(id) {
+        this.#TodosCollection.delete(id)
+            .then(() => {
+                this.#TodoListView.renderList(this.#TodosCollection.list);
+            });
+    };
+
+    addTodo(newTodo) {
+        this.#TodosCollection.save(newTodo)
+            .then(() => {
+                this.#TodoListView.renderList(this.#TodosCollection.list);
+            })
+    };
+
+    editTodo(id) {
+        const item = this.#TodosCollection.getItem(id);
+        this.#TodoFormView.fillInput(item);
+    };
 }
