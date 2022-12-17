@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Form extends Component {
     // state = {
@@ -22,7 +22,6 @@ export class Form extends Component {
         return (
             <form onSubmit={this.onFormSubmit}>
                 <input name="title" placeholder="title" />
-                <input name="author" placeholder="author" />
                 <button>Save</button>
             </form>
         )

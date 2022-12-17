@@ -17,7 +17,7 @@ export class App extends Component {
     toggleTodo = (id) => {
         this.setState({
             list: this.state.list.map((item) =>
-                item.id !== id ? item : {...item, isDone: !item.isDone}
+                item.id !== id ? item : {...item, isDone: !item.isDone,}
             ),
         });
     };
@@ -38,4 +38,4 @@ export class App extends Component {
     };
 };
 
-export default App;
+export default App

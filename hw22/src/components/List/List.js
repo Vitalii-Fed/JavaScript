@@ -7,7 +7,9 @@ export class List extends Component {
         return (
             <ul>
                 {this.props.list.map((item) => (
-                    <ListItem key={item.id} todo={item}
+                    <ListItem
+                    key={item.id}
+                    todo={item}
                     onToggle={this.props.onToggle}
                     onDelete={this.props.onDelete} />
                 ))}
