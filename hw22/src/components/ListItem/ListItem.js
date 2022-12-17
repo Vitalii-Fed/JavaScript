@@ -17,7 +17,7 @@ export class ListItem extends Component {
         return (
             <li className={'item' + (this.props.todo.isDone ? ' done' : '')} onClick={this.onElementClick}>
                 {this.props.todo.title}
-                <button onClick={this.onDeleteClick}>Delete</button>
+                <button onClick={this.onDeleteClick}>Delete Todo</button>
             </li>
         );
     };

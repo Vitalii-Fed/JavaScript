@@ -8,9 +8,9 @@ import List from '../List/List';
 export class App extends Component {
     state = {
         list: [
-            { id: 1, title: 'Item 10', isDone: false },
-            { id: 2, title: 'Item 20', isDone: true },
-            { id: 3, title: 'Item 30', isDone: false },
+            { id: 1, title: 'Todo 1', isDone: false },
+            { id: 2, title: 'Todo 2', isDone: true },
+            { id: 3, title: 'Todo 3', isDone: false },
         ],
     };
 
